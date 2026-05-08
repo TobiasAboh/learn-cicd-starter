@@ -8,7 +8,7 @@ import (
 
 func TestGetAPIKey(t *testing.T) {
 	h := http.Header{}
-	h.Set("Authorization", "")
+	h.Set("Authorization", "ApiKey Tobias")
 	_, err := GetAPIKey(h)
 	if !reflect.DeepEqual(nil, err) {
 		t.Fatalf("expected: %v, got: %v", nil, err)
@@ -19,7 +19,7 @@ func TestGetAPIKeyValue(t *testing.T) {
 	h := http.Header{}
 	h.Set("Authorization", "ApiKey Tobias")
 	got, _ := GetAPIKey(h)
-	want, _ := "Aboh", ""
+	want, _ := "Tobias", ""
 	if !reflect.DeepEqual(want, got) {
 		t.Fatalf("expected: %v, got: %v", want, got)
 	}
